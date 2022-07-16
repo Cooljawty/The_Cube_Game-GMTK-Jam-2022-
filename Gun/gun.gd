@@ -9,7 +9,13 @@ export var Guns = [preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.t
 onready var Player = get_parent()
 
 var Can_gun_shoot = true
-var Multi_shot
+
+var Multi_shot = 1
+var Damage = 1
+var Shooting_speed = 1
+var Pierce = 0
+var Bounce = 0
+var Bullet_speed
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -27,26 +33,47 @@ func _ready():
 func _process(delta):
 	look_at(get_global_mouse_position())
 	node.rotation_degrees = rotation_degrees
+	if Input.is_action_pressed("shoot") and Can_gun_shoot:
+		print(Player.Face)
+		Can_gun_shoot = false
+		if Player.Face == 1:
+			shoot(0, 1 ,6)
+		elif  Player.Face == 2:
+			pass
+		elif  Player.Face == 3:
+			pass
+		elif  Player.Face == 4:
+			pass
+		elif  Player.Face == 5:
+			get_child(1).wait_time = 0.7 * Shooting_speed
+			var Shot_speed = 1.1
+			for n in 5:
+				if [1,3].has(n):
+					Shot_speed = 3.2
+				elif n == 2:
+					Shot_speed = 3
+				else:
+					Shot_speed = 2.8
+				print("5467")
+				shoot(n * 3 - 6, Shot_speed, 1.2)
+		elif  Player.Face == 6:
+			get_child(1).wait_time = 0.7 * Shooting_speed
+			shoot(0, 3, 1)
+		#Cooldown
+		get_child(1).start()
 
 func _input(event):
 	get_child(0).texture = Guns[Player.Face - 1]
-	if Input.is_action_just_pressed("shoot") and Can_gun_shoot:
-		print("123")
-		Can_gun_shoot = false
-		get_child(1).start()
-		for n in Player.Face:
-			shoot(rand_range(-5,5))
 
-
-func shoot(Rotmodif):
+func shoot(Rotmodif, Speed, Damage):
 	var bullet = BullLocate.instance()
 	Player.get_parent().add_child(bullet)
+	bullet.Speed = Speed
+	bullet.Damage = Damage
 	bullet.rotation_degrees = $Node2D.rotation_degrees + Rotmodif
 	bullet.global_position = $Node2D/Position2D.global_position
 	
-	print("bang")
 
 
 func Gun_can_shoot():
 	Can_gun_shoot = true
-	print("Text")

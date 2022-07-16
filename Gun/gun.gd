@@ -47,6 +47,7 @@ func _process(delta):
 		
 		elif  Player.Face == 2:
 			shoot(0, 3.7 , 3, 2, 5)
+			shoot(0, 3.7 , 3, 2, -5)
 			Shot = 2
 			Multi_shot = 2
 			get_child(2).start()

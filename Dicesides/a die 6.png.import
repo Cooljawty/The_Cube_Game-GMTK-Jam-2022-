@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/a die 3.png-1db55207c89bb90a0dfff1e55c75b5b8.stex"
+path="res://.import/a die 6.png-8ed4ace45d2df9892b75fae5cce6d572.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://a die 3.png"
-dest_files=[ "res://.import/a die 3.png-1db55207c89bb90a0dfff1e55c75b5b8.stex" ]
+source_file="res://Dicesides/a die 6.png"
+dest_files=[ "res://.import/a die 6.png-8ed4ace45d2df9892b75fae5cce6d572.stex" ]
 
 [params]
 
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

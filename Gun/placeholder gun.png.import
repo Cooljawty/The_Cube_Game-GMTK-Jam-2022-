@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/placeholder gun.png-841d93e40c6afe9633992491db00ee58.stex"
+path="res://.import/placeholder gun.png-cc424e3156270fe62f40fdf90986008b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholder gun.png"
-dest_files=[ "res://.import/placeholder gun.png-841d93e40c6afe9633992491db00ee58.stex" ]
+source_file="res://Gun/placeholder gun.png"
+dest_files=[ "res://.import/placeholder gun.png-cc424e3156270fe62f40fdf90986008b.stex" ]
 
 [params]
 
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

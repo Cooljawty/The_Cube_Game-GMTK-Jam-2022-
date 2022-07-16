@@ -1,197 +1,155 @@
 extends KinematicBody2D
 
 
-export var Side_1 = preload("res://Dicesides/a die 1.png")
-export var Side_2 = preload("res://Dicesides/a die 1.png")
-export var Side_3 = preload("res://Dicesides/a die 1.png")
-export var Side_4 = preload("res://Dicesides/a die 1.png")
-export var Side_5 = preload("res://Dicesides/a die 1.png")
-export var Side_6 = preload("res://Dicesides/a die 1.png")
-var Face = 1
+
+export var Sides = [preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn")]
+export var Face = 1
 var debounce = 0
 var debouce_movement = 0
 
+var Rotation_ = 0
+
 func _input(event):
+	# - 5 - -
+	# 3 1 4 6
+	# - 2 - -
+	# - 6 - -
 	if Input.is_action_just_pressed("Up") and debouce_movement == 0:
 		debouce_movement = 1
 		move_and_collide(Vector2(0,-64))
-		roll("Up")
+		roll(1)
+		debouce_movement = 0
+	if Input.is_action_just_pressed("Right") and debouce_movement == 0:
+		debouce_movement = 1
+		move_and_collide(Vector2(64,0))
+		roll(2)
 		debouce_movement = 0
 	if Input.is_action_just_pressed("Down") and debouce_movement == 0:
 		debouce_movement = 1
 		move_and_collide(Vector2(0,64))
-		roll("Down")
-		debouce_movement = 0
-	if Input.is_action_just_pressed("Right") and debouce_movement == 0:
-		debouce_movement = 1
-		
-		move_and_collide(Vector2(64,0))
-		roll("Right")
+		roll(3)
 		debouce_movement = 0
 	if Input.is_action_just_pressed("Left") and debouce_movement == 0:
 		debouce_movement = 1
 		move_and_collide(Vector2(-64,0))
-		roll("Left")
+		roll(4)
 		debouce_movement = 0
 		
 
 func roll(Direction_):
+	#Up = 1
+	#Right = 2
+	#Down = 3
+	#Left = 4
+	var True_direction = Rotation_ + Direction_
+	if True_direction > 4:
+		True_direction = True_direction - 4
 	# face 1
 	if Face == 1:
-		if Direction_ == "Down" and debounce == 0:
-			debounce = 1
-			self.get_child(0).set_texture(Side_5)
-			Face = 5
-			print(Face)
-			debounce = 0
-		elif Direction_ == "Up" and debounce == 0:
-			debounce = 1
-			self.get_child(0).set_texture(Side_2)
+		if True_direction == 1:
 			Face = 2
-			print(Face)
-			debounce = 0
-		elif Direction_ == "Right" and debounce == 0:
-			debounce = 1
-			self.get_child(0).set_texture(Side_3)
+			Rotation_ += 0
+		elif True_direction == 2:
 			Face = 3
-			print(Face)
-			debounce = 0
-		elif Direction_ == "Left" and debounce == 0:
-			debounce = 1
-			self.get_child(0).set_texture(Side_4)
+			Rotation_ += 3
+		elif True_direction == 3:
+			Face = 5
+			Rotation_ += 2
+		elif True_direction == 4:
 			Face = 4
-			print(Face)
-			debounce = 0
-		
-	# face 2
-	if Face == 2 and Direction_ == "Down" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_1)
-		Face = 1
-		print(Face)
-		debounce = 0
-	elif Face == 2 and Direction_ == "Up" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_6)
-		Face = 6
-		print(Face)
-		debounce = 0
-	elif Face == 2 and Direction_ == "Right" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_3)
-		Face = 3
-		print(Face)
-		debounce = 0
-	elif Face == 2 and Direction_ == "Left" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_4)
-		Face = 4
-		print(Face)
-		debounce = 0
-		
-	# face 3
-	if Face == 3 and Direction_ == "Down" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_2)
-		Face = 2
-		print(Face)
-		debounce = 0
-	elif Face == 3 and Direction_ == "Up" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_5)
-		Face = 5
-		print(Face)
-		debounce = 0
-	elif Face == 3 and Direction_ == "Right" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_6)
-		Face = 6
-		print(Face)
-		debounce = 0
-	elif Face == 3 and Direction_ == "Left" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_1)
-		Face = 1
-		print(Face)
-		debounce = 0
+			Rotation_ += 1
 	
-	# face 4
-	if Face == 4 and Direction_ == "Down" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_5)
-		Face = 5
-		print(Face)
-		debounce = 0
-	elif Face == 4 and Direction_ == "Up" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_2)
-		Face = 2
-		print(Face)
-		debounce = 0
-	elif Face == 4 and Direction_ == "Right" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_1)
-		Face = 1
-		print(Face)
-		debounce = 0
-	elif Face == 4 and Direction_ == "Left" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_6)
-		Face = 6 
-		print(Face)
-		debounce = 0
+	elif Face == 2:
+		if True_direction == 1:
+			Face = 6
+			Rotation_ += 0
+		elif True_direction == 2:
+			Face = 3
+			Rotation_ += 0
+		elif True_direction == 3:
+			Face = 1
+			Rotation_ += 0
+		elif True_direction == 4:
+			Face = 4
+			Rotation_ += 0
 	
-	# face 5
-	if Face == 5 and Direction_ == "Down" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_6)
-		Face = 6
-		print(Face)
-		debounce = 0
-	elif Face == 5 and Direction_ == "Up" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_1)
-		Face = 1
-		print(Face)
-		debounce = 0
-	elif Face == 5 and Direction_ == "Right" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_3)
-		Face = 3
-		print(Face)
-		debounce = 0
-	elif Face == 5 and Direction_ == "Left" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_4)
-		Face = 4
-		print(Face)
-		debounce = 0
+	elif Face == 3:
+		#Up
+		if True_direction == 1:
+			Face = 6
+			Rotation_ += 3
+		#Right
+		elif True_direction == 2:
+			Face = 5
+			Rotation_ += 0
+		#Down
+		elif True_direction == 3:
+			Face = 1
+			Rotation_ += 1
+		#Left
+		elif True_direction == 4:
+			Face = 2
+			Rotation_ += 0
 	
-	# face 6
-	if Face == 6 and Direction_ == "Down" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_5)
-		Face = 2
-		print(Face)
-		debounce = 0
-	elif Face == 6 and Direction_ == "Up" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_2)
-		Face = 5
-		print(Face)
-		debounce = 0
-	elif Face == 6 and Direction_ == "Right" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_3)
-		Face = 3
-		print(Face)
-		debounce = 0
-	elif Face == 6 and Direction_ == "Left" and debounce == 0:
-		debounce = 1
-		self.get_child(0).set_texture(Side_4)
-		Face = 4
-		print(Face)
-		debounce = 0
-
+	elif Face == 4:
+		#Up
+		if True_direction == 1:
+			Face = 6
+			Rotation_ += 1
+		#Right
+		elif True_direction == 2:
+			Face = 2
+			Rotation_ += 0
+		#Down
+		elif True_direction == 3:
+			Face = 1
+			Rotation_ += 3
+		#Left
+		elif True_direction == 4:
+			Face = 5
+			Rotation_ += 0
+	
+	elif Face == 5:
+		#Up
+		if True_direction == 1:
+			Face = 6
+			Rotation_ += 2
+		#Right
+		elif True_direction == 2:
+			Face = 4
+			Rotation_ += 0
+		#Down
+		elif True_direction == 3:
+			Face = 1
+			Rotation_ += 2
+		#Left
+		elif True_direction == 4:
+			Face = 3
+			Rotation_ += 0
+	
+	elif Face == 6:
+		#Up
+		if True_direction == 1:
+			Face = 5
+			Rotation_ += 2
+		#Right
+		elif True_direction == 2:
+			Face = 3
+			Rotation_ += 1
+		#Down
+		elif True_direction == 3:
+			Face = 2
+			Rotation_ += 0
+		#Left
+		elif True_direction == 4:
+			Face = 4
+			Rotation_ += 3
+	
+	if Rotation_ > 3:
+		Rotation_ -= 4
+	
+	print("true",True_direction)
+	print("rotation",Rotation_)
+	get_child(0).texture = Sides[Face - 1]
 
 

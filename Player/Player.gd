@@ -1,12 +1,12 @@
 extends KinematicBody2D
 
 
-export var Side_1 = preload("res://a die 1.png")
-export var Side_2 = preload("res://a die 2.png")
-export var Side_3 = preload("res://a die 3.png")
-export var Side_4 = preload("res://a die 4.png")
-export var Side_5 = preload("res://a die 5.png")
-export var Side_6 = preload("res://a die 6.png")
+export var Side_1 = preload("res://Dicesides/a die 1.png")
+export var Side_2 = preload("res://Dicesides/a die 1.png")
+export var Side_3 = preload("res://Dicesides/a die 1.png")
+export var Side_4 = preload("res://Dicesides/a die 1.png")
+export var Side_5 = preload("res://Dicesides/a die 1.png")
+export var Side_6 = preload("res://Dicesides/a die 1.png")
 var Face = 1
 var debounce = 0
 var debouce_movement = 0

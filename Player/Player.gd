@@ -9,6 +9,9 @@ var debouce_movement = 0
 
 var Rotation_ = 0
 
+func _ready():
+	get_node("/root/Global").Wtf_is_Player(self)
+
 func _input(event):
 	# - 5 - -
 	# 3 1 4 6
@@ -148,8 +151,13 @@ func roll(Direction_):
 	if Rotation_ > 3:
 		Rotation_ -= 4
 	
-	print("true",True_direction)
-	print("rotation",Rotation_)
 	get_child(0).texture = Sides[Face - 1]
 
+
+
+
+func _on_spawn_timeout():
+	var bullet = preload("res://Enemy.tscn").instance()
+	get_parent().add_child(bullet)
+	bullet.global_position = global_position + (Vector2(rand_range(-2, 2), rand_range(-2, 2) + 20) * 20)
 

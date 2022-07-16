@@ -12,6 +12,17 @@ var Rotation_ = 0
 func _ready():
 	get_node("/root/Global").Wtf_is_Player(self)
 
+func _process(delta):
+	get_child(1).scale.x += 0.01
+	get_child(1).position.x += 0.15
+	get_child(0).scale.x -= 0.01
+	get_child(0).position.x += 0.15
+	if get_child(1).scale.x > 2:
+		get_child(1).scale.x = 0
+		get_child(1).position.x = -30
+		get_child(0).scale.x = 2
+		get_child(0).position.x = 0
+
 func _input(event):
 	# - 5 - -
 	# 3 1 4 6

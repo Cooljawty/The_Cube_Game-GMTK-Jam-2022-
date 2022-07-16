@@ -163,6 +163,7 @@ func roll(Direction_):
 		Rotation_ -= 4
 	
 	get_child(0).texture = Sides[Face - 1]
+	get_child(1).texture = Sides[Face - 1]
 
 
 

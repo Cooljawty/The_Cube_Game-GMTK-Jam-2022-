@@ -33,5 +33,6 @@ shape = SubResource( 1 )
 current = true
 
 [node name="spawn" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]

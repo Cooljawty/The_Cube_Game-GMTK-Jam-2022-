@@ -20,7 +20,7 @@ func _process(delta):
 func Damage_received(Damage, Gun_type):
 	helth -= Damage
 	if Last_spliter == 0:
-		if Last_damage_type == Gun_type or (Last_damage_type == 0 and not Last_damage_type_2 != 0):
+		if Last_damage_type == Gun_type or (Last_damage_type == 0 and Last_damage_type_2 != 0):
 			Last_damage_data_save(Damage, Gun_type)
 		elif Last_damage_type_2 == Gun_type or Last_damage_type_2 == 0:
 			Last_damage_data_save_2(Damage, Gun_type)
@@ -45,6 +45,7 @@ func Last_damage_data_save(Damage, Gun_type):
 		if get_node("/root/Global").Combo_komponent_1.has(Last_major_damage) and get_node("/root/Global").Combo_komponent_2.has(Gun_type):
 			Last_major_damage = 0
 			helth -= 12
+			print("cghcgh")
 		else:
 			Last_major_damage = Last_damage_type
 		Last_damage_type = 0

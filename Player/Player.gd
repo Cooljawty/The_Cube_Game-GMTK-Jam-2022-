@@ -9,9 +9,6 @@ var debouce_movement = 0
 
 var Rotation_ = 0
 
-func _ready():
-	get_node("/root/Global").Wtf_is_Player(self)
-
 func _input(event):
 	# - 5 - -
 	# 3 1 4 6
@@ -38,126 +35,238 @@ func _input(event):
 		roll(4)
 		debouce_movement = 0
 		
-
-func roll(Direction_):
+func get_next_face(next_direction, current_rotation, current_face):
 	#Up = 1
 	#Right = 2
 	#Down = 3
 	#Left = 4
-	var True_direction = Rotation_ + Direction_
+	var True_direction = current_rotation + next_direction
 	if True_direction > 4:
 		True_direction = True_direction - 4
 	# face 1
-	if Face == 1:
+	if current_face == 1:
 		if True_direction == 1:
-			Face = 2
-			Rotation_ += 0
+			current_face = 2
+			current_rotation += 0
 		elif True_direction == 2:
-			Face = 3
-			Rotation_ += 3
+			current_face = 3
+			current_rotation += 3
 		elif True_direction == 3:
-			Face = 5
-			Rotation_ += 2
+			current_face = 5
+			current_rotation += 2
 		elif True_direction == 4:
-			Face = 4
-			Rotation_ += 1
+			current_face = 4
+			current_rotation += 1
 	
-	elif Face == 2:
+	elif current_face == 2:
 		if True_direction == 1:
-			Face = 6
-			Rotation_ += 0
+			current_face = 6
+			current_rotation += 0
 		elif True_direction == 2:
-			Face = 3
-			Rotation_ += 0
+			current_face = 3
+			current_rotation += 0
 		elif True_direction == 3:
-			Face = 1
-			Rotation_ += 0
+			current_face = 1
+			current_rotation += 0
 		elif True_direction == 4:
-			Face = 4
-			Rotation_ += 0
+			current_face = 4
+			current_rotation += 0
 	
-	elif Face == 3:
+	elif current_face == 3:
 		#Up
 		if True_direction == 1:
-			Face = 6
-			Rotation_ += 3
+			current_face = 6
+			current_rotation += 3
 		#Right
 		elif True_direction == 2:
-			Face = 5
-			Rotation_ += 0
+			current_face = 5
+			current_rotation += 0
 		#Down
 		elif True_direction == 3:
-			Face = 1
-			Rotation_ += 1
+			current_face = 1
+			current_rotation += 1
 		#Left
 		elif True_direction == 4:
-			Face = 2
-			Rotation_ += 0
+			current_face = 2
+			current_rotation += 0
 	
-	elif Face == 4:
+	elif current_face == 4:
 		#Up
 		if True_direction == 1:
-			Face = 6
-			Rotation_ += 1
+			current_face = 6
+			current_rotation += 1
 		#Right
 		elif True_direction == 2:
-			Face = 2
-			Rotation_ += 0
+			current_face = 2
+			current_rotation += 0
 		#Down
 		elif True_direction == 3:
-			Face = 1
-			Rotation_ += 3
+			current_face = 1
+			current_rotation += 3
 		#Left
 		elif True_direction == 4:
-			Face = 5
-			Rotation_ += 0
+			current_face = 5
+			current_rotation += 0
 	
-	elif Face == 5:
+	elif current_face == 5:
 		#Up
 		if True_direction == 1:
-			Face = 6
-			Rotation_ += 2
+			current_face = 6
+			current_rotation += 2
 		#Right
 		elif True_direction == 2:
-			Face = 4
-			Rotation_ += 0
+			current_face = 4
+			current_rotation += 0
 		#Down
 		elif True_direction == 3:
-			Face = 1
-			Rotation_ += 2
+			current_face = 1
+			current_rotation += 2
 		#Left
 		elif True_direction == 4:
-			Face = 3
-			Rotation_ += 0
+			current_face = 3
+			current_rotation += 0
 	
-	elif Face == 6:
+	elif current_face == 6:
 		#Up
 		if True_direction == 1:
-			Face = 5
-			Rotation_ += 2
+			current_face = 5
+			current_rotation += 2
 		#Right
 		elif True_direction == 2:
-			Face = 3
-			Rotation_ += 1
+			current_face = 3
+			current_rotation += 1
 		#Down
 		elif True_direction == 3:
-			Face = 2
-			Rotation_ += 0
+			current_face = 2
+			current_rotation += 0
 		#Left
 		elif True_direction == 4:
-			Face = 4
-			Rotation_ += 3
+			current_face = 4
+			current_rotation += 3
 	
-	if Rotation_ > 3:
-		Rotation_ -= 4
+	if current_rotation > 3:
+		current_rotation -= 4
 	
+	return [current_rotation, current_face]
+	
+func roll(Direction_):
+	var result = get_next_face(Direction_, Rotation_, Face)
+	Direction_ = result[0]
+	Face = result[1]
+	
+	#Up = 1
+	#Right = 2
+	#Down = 3
+	#Left = 4
+#	var True_direction = Rotation_ + Direction_
+#	if True_direction > 4:
+#		True_direction = True_direction - 4
+#	# face 1
+#	if Face == 1:
+#		if True_direction == 1:
+#			Face = 2
+#			Rotation_ += 0
+#		elif True_direction == 2:
+#			Face = 3
+#			Rotation_ += 3
+#		elif True_direction == 3:
+#			Face = 5
+#			Rotation_ += 2
+#		elif True_direction == 4:
+#			Face = 4
+#			Rotation_ += 1
+#
+#	elif Face == 2:
+#		if True_direction == 1:
+#			Face = 6
+#			Rotation_ += 0
+#		elif True_direction == 2:
+#			Face = 3
+#			Rotation_ += 0
+#		elif True_direction == 3:
+#			Face = 1
+#			Rotation_ += 0
+#		elif True_direction == 4:
+#			Face = 4
+#			Rotation_ += 0
+#
+#	elif Face == 3:
+#		#Up
+#		if True_direction == 1:
+#			Face = 6
+#			Rotation_ += 3
+#		#Right
+#		elif True_direction == 2:
+#			Face = 5
+#			Rotation_ += 0
+#		#Down
+#		elif True_direction == 3:
+#			Face = 1
+#			Rotation_ += 1
+#		#Left
+#		elif True_direction == 4:
+#			Face = 2
+#			Rotation_ += 0
+#
+#	elif Face == 4:
+#		#Up
+#		if True_direction == 1:
+#			Face = 6
+#			Rotation_ += 1
+#		#Right
+#		elif True_direction == 2:
+#			Face = 2
+#			Rotation_ += 0
+#		#Down
+#		elif True_direction == 3:
+#			Face = 1
+#			Rotation_ += 3
+#		#Left
+#		elif True_direction == 4:
+#			Face = 5
+#			Rotation_ += 0
+#
+#	elif Face == 5:
+#		#Up
+#		if True_direction == 1:
+#			Face = 6
+#			Rotation_ += 2
+#		#Right
+#		elif True_direction == 2:
+#			Face = 4
+#			Rotation_ += 0
+#		#Down
+#		elif True_direction == 3:
+#			Face = 1
+#			Rotation_ += 2
+#		#Left
+#		elif True_direction == 4:
+#			Face = 3
+#			Rotation_ += 0
+#
+#	elif Face == 6:
+#		#Up
+#		if True_direction == 1:
+#			Face = 5
+#			Rotation_ += 2
+#		#Right
+#		elif True_direction == 2:
+#			Face = 3
+#			Rotation_ += 1
+#		#Down
+#		elif True_direction == 3:
+#			Face = 2
+#			Rotation_ += 0
+#		#Left
+#		elif True_direction == 4:
+#			Face = 4
+#			Rotation_ += 3
+#
+#	if Rotation_ > 3:
+#		Rotation_ -= 4
+	
+	#print("true",True_direction)
+	#print("rotation",Rotation_)
 	get_child(0).texture = Sides[Face - 1]
 
-
-
-
-func _on_spawn_timeout():
-	var bullet = preload("res://Enemy.tscn").instance()
-	get_parent().add_child(bullet)
-	bullet.global_position = global_position + (Vector2(rand_range(-2, 2), rand_range(-2, 2) + 20) * 20)
 

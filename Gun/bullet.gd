@@ -13,6 +13,7 @@ func _physics_process(delta):
 	self.global_position.x += cos(rotation) * Speed
 
 
+
 func _on_Timer_timeout():
 	self.queue_free()
 

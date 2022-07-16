@@ -14,11 +14,7 @@ extents = Vector2( 15.5999, 15.7265 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-Side_2 = ExtResource( 4 )
-Side_3 = ExtResource( 7 )
-Side_4 = ExtResource( 6 )
-Side_5 = ExtResource( 5 )
-Side_6 = ExtResource( 8 )
+Sides = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ) ]
 
 [node name="a die 1" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )

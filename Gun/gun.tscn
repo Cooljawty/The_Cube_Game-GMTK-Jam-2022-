@@ -18,7 +18,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="multy shot" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.15
 one_shot = true
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -28,3 +28,4 @@ position = Vector2( 78, 2 )
 script = ExtResource( 3 )
 
 [connection signal="timeout" from="Weapon delay" to="." method="Gun_can_shoot"]
+[connection signal="timeout" from="multy shot" to="." method="_on_multy_shot_timeout"]

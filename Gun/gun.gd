@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var node = $Node2D
 
-var BullLocate = preload("res://bullet.tscn")
+var BullLocate = preload("res://Gun/bullet.tscn")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -28,6 +28,6 @@ func shoot():
 	var bullet = BullLocate.instance()
 	get_parent().get_parent().add_child(bullet)
 	bullet.rotation_degrees = $Node2D.rotation_degrees
-	bullet.position = $Node2D/Position2D.global_position
+	bullet.global_position = $Node2D/Position2D.global_position
 	
 	print("bang")

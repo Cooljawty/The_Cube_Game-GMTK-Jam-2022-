@@ -26,3 +26,8 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="spawn" type="Timer" parent="."]
+
+[connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]

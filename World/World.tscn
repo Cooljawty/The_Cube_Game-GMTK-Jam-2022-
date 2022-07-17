@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Room.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fight.mp3" type="AudioStream" id=4]
 
 [sub_resource type="Environment" id=1]
 background_energy = 1.18
@@ -115,3 +116,7 @@ scale = Vector2( 9.2884, 0.274117 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -25.1985, -1239.76 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true

@@ -3,10 +3,11 @@ extends KinematicBody2D
 onready var node = $Node2D
 
 var BullLocate = preload("res://Gun/bullet.tscn")
-
+onready var image = $Sprite.texture
 export var Guns = [preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn")]
 export var Shot_sound = preload("res://Gun/Shoot 2.wav")
 export var Shotgun_sound = preload("res://Gun/Shoot 2.wav")
+
 
 onready var Player = get_parent()
 
@@ -29,16 +30,20 @@ var debounce = 0
 export var bullet_speed = 100
 func _ready():
 	pass # Replace with function body.
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
 func _process(delta):
+	
 	if Multi_shot < 2:
 		look_at(get_global_mouse_position())
 	node.rotation_degrees = rotation_degrees
 	if Input.is_action_pressed("shoot") and Can_gun_shoot:
+		
 		Can_gun_shoot = false
 		
 		if Player.Face == 1:
@@ -89,6 +94,7 @@ func _process(delta):
 		#Cooldown
 		get_child(1).start()
 
+	
 func _input(event):
 	get_child(0).texture = Guns[Player.Face - 1]
 
@@ -114,7 +120,6 @@ func shoot(Rotmodif, Speed, Damage, Gun_type, Offset):
 
 func Gun_can_shoot():
 	Can_gun_shoot = true
-
 
 func _on_multy_shot_timeout():
 	Multi_shot -= 1

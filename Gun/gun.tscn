@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Gun/guns/fish dula gun.png" type="Texture" id=1]
 [ext_resource path="res://Gun/gun.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Gun/guns/burst gun.png" type="Texture" id=8]
 [ext_resource path="res://Gun/guns/shotgun.png" type="Texture" id=9]
 [ext_resource path="res://Gun/guns/minigun.png" type="Texture" id=10]
+[ext_resource path="res://Gun/Shoot 2.wav" type="AudioStream" id=11]
+[ext_resource path="res://Gun/Fishgun 2.wav" type="AudioStream" id=12]
+[ext_resource path="res://Gun/Gravgun.wav" type="AudioStream" id=13]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/placeholder gun.png-504ffa33e637c9cb041b77b538474507.stex"
@@ -17,6 +20,7 @@ load_path = "res://.import/placeholder gun.png-504ffa33e637c9cb041b77b538474507.
 [node name="gun" type="KinematicBody2D"]
 script = ExtResource( 2 )
 Guns = [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ) ]
+Gun_sounds = [ ExtResource( 5 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 11 ) ]
 Shotgun_sound = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]

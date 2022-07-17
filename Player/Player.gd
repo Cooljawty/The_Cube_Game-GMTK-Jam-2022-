@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 signal player_move(current_face)
-export var Sides = [preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn")]
+export var Sides = [preload("res://Dicesides/die1sheet.png"), preload("res://Dicesides/die2sheet.png"),preload("res://Dicesides/die3sheet.png"),preload("res://Dicesides/die4sheet.png"),preload("res://Dicesides/die5sheet.png"),preload("res://Dicesides/die6sheet.png")]
 export var Face = 1
 var debounce = 0
 var debouce_movement = 0
@@ -10,8 +10,10 @@ var Rotation_ = 0
 
 func _ready():
 	get_node("/root/Global").Wtf_is_Player(self)
+	get_child(6).start()
 
 func _process(delta):
+	"""
 	get_child(1).scale.x += 0.01
 	get_child(1).position.x += 0.15
 	get_child(0).scale.x -= 0.01
@@ -21,7 +23,8 @@ func _process(delta):
 		get_child(1).position.x = -30
 		get_child(0).scale.x = 2
 		get_child(0).position.x = 0
-
+	"""
+	
 func _input(event):
 	# - 5 - -
 	# 3 1 4 6
@@ -179,6 +182,10 @@ func roll(Direction_):
 	#print("true",True_direction)
 	#print("rotation",Rotation_)
 	get_child(0).texture = Sides[Face - 1]
-	get_child(1).texture = Sides[Face - 1]
+	$AnimationPlayer.stop()
+	get_child(0).set_frame(0)
 
 
+
+func _on_Idle_timeout():
+	$AnimationPlayer.play("Player Movement")

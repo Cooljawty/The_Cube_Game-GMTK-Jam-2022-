@@ -4,7 +4,7 @@
 [ext_resource path="res://Gun/bullet.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 4.5 )
+extents = Vector2( 6.99997, 7.00003 )
 
 [node name="Bullet" type="Node2D"]
 light_mask = 3

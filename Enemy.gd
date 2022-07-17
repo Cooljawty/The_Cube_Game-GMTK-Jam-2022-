@@ -37,8 +37,8 @@ func Damage_received(Damage, Gun_type):
 	print(Current_combo)
 	if Current_combo == get_node("/root/Global").Combo1:
 			print("Combo1 activated")
-			health -= 5
-
+			helth -= 5
+	"""
 	if Last_spliter == 0:
 		if Last_damage_type == Gun_type or (Last_damage_type == 0 and Last_damage_type_2 != 0):
 			Last_damage_data_save(Damage, Gun_type)
@@ -54,11 +54,10 @@ func Damage_received(Damage, Gun_type):
 		else:
 			Last_damage = 0
 			Last_damage_data_save(Damage, Gun_type)
-
 	print(Last_damage_type, "-", Last_damage_type_2)
 	print(Last_damage, "-", Last_damage_2)
+	"""
 	if helth < 0:
-
 		self.queue_free()
 
 """

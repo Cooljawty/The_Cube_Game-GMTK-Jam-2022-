@@ -29,5 +29,4 @@ func Area_entered(area):
 	if not area.get_collision_layer_bit(1):
 		connect("Deel_damage", area.get_parent(), "Damage_received")
 		emit_signal("Deel_damage", Damage, Gun_type)
-
 		self.queue_free()

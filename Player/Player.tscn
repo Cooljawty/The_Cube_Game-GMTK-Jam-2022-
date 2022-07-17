@@ -58,6 +58,7 @@ shape = SubResource( 1 )
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+process_priority = 1
 
 [node name="HUD" parent="Camera2D/CanvasLayer" instance=ExtResource( 9 )]
 margin_left = 403.0

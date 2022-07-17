@@ -53,7 +53,6 @@ func Damage_received(Damage, Gun_type):
 		else:
 			Last_damage = 0
 			Last_damage_data_save(Damage, Gun_type)
-
 	print(Last_damage_type, "-", Last_damage_type_2)
 	print(Last_damage, "-", Last_damage_2)
 	"""

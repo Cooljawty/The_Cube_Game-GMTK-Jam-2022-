@@ -2,9 +2,13 @@
 
 TODO:
 	Camera
-	Enemies
-	Weapon 4
-	World generation
-	Attack Combos
-	UI
+	Enemies - q
+	World generation - q
+	Attack Combos - q
+	UI: Available combos -j
+	HUD: Current combo on enemy -j
+	Player animation -j
+	Enemy animation -j
 	Menu
+	SFX -q
+	

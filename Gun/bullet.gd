@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 var vel = Vector2(1,0)
 export var Speed = 300
@@ -25,9 +25,9 @@ func _on_Timer_timeout():
 	self.queue_free()
 
 
-
 func Area_entered(area):
 	if not area.get_collision_layer_bit(1):
 		connect("Deel_damage", area.get_parent(), "Damage_received")
 		emit_signal("Deel_damage", Damage, Gun_type)
+
 		self.queue_free()

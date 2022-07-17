@@ -1,4 +1,4 @@
-extends Sprite
+extends TileMap
 
 export var Templets : Array = [PoolVector2Array()]
 export var Room = preload("res://World/Room.tscn")

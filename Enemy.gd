@@ -3,6 +3,8 @@ extends KinematicBody2D
 var dir = Vector2.ZERO
 var helth = 42.0
 
+export var Hit_sounds = [preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav")]
+
 var Last_damage_type = 0
 var Last_damage = 0
 var Last_damage_type_2 = 0
@@ -16,12 +18,13 @@ func _process(delta):
 	dir.y = sin(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
 	dir.x = cos(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
 	move_and_collide(dir)
+	print("sda")
 
 func Damage_received(Damage, Gun_type):
 	helth -= Damage
 	get_child(0).pitch_scale = rand_range(0.8, 1.2)
-	#get_child(0).volume_db = rand_range(0.8, 1.2)
-	#get_child(3).stream = Gun_sounds[Gun_type - 1]
+	get_child(0).volume_db = rand_range(0.8, 1.2)
+	get_child(0).stream = Hit_sounds[Gun_type - 1]
 	get_child(0).play(0)
 	print("Enemy health:", helth)
 	

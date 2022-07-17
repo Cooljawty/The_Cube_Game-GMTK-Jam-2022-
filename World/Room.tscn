@@ -1,9 +1,47 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://World/Room.gd" type="Script" id=1]
-[ext_resource path="res://Dicesides/2.png" type="Texture" id=2]
+[ext_resource path="res://World/Wall.tscn" type="PackedScene" id=3]
 
 [node name="Sprite" type="Sprite"]
-scale = Vector2( 5.92584, 4.746 )
-texture = ExtResource( 2 )
+scale = Vector2( 15, 15 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 19, 30 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.8 )
+
+[node name="Wall4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 30, 19 )
+scale = Vector2( 0.1, 0.8 )
+
+[node name="Wall6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 19, -30 )
+rotation = 1.56999
+scale = Vector2( 0.1, 0.8 )
+
+[node name="Wall7" parent="." instance=ExtResource( 3 )]
+position = Vector2( -30, 19 )
+scale = Vector2( 0.1, 0.8 )
+
+[node name="Wall5" parent="." instance=ExtResource( 3 )]
+position = Vector2( -19, 30 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.8 )
+
+[node name="Wall8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 30, -19 )
+scale = Vector2( 0.1, 0.8 )
+
+[node name="Wall9" parent="." instance=ExtResource( 3 )]
+position = Vector2( -30, -19 )
+scale = Vector2( 0.1, 0.8 )
+
+[node name="Wall10" parent="." instance=ExtResource( 3 )]
+position = Vector2( -19, -30 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.8 )

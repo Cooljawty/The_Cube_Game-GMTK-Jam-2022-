@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://World/Room.gd" type="Script" id=1]
+[ext_resource path="res://Dicesides/2.png" type="Texture" id=2]
+
+[node name="Sprite" type="Sprite"]
+scale = Vector2( 5.92584, 4.746 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

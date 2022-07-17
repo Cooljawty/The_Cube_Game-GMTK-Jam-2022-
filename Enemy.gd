@@ -13,8 +13,8 @@ var Last_major_damage
 
 func _process(delta):
 	look_at(get_node("/root/Global").Player.global_position)
-	dir.y += sin(rotation) * 0.01
-	dir.x += cos(rotation) * 0.01
+	dir.y = sin(rotation) * 1.2
+	dir.x = cos(rotation) * 1.2
 	move_and_collide(dir)
 
 func Damage_received(Damage, Gun_type):

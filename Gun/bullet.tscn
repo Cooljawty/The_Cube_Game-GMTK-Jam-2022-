@@ -15,7 +15,6 @@ wait_time = 2.0
 autostart = true
 
 [node name="Bullet" type="CollisionShape2D" parent="."]
-position = Vector2( 1, -0.5 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

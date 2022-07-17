@@ -15,12 +15,12 @@ var Can_gun_shoot = true
 var Multi_shot = 1
 var Shot = 0
 var Masshingun_phase = false
-
+#Upgrade effects
 var Damage = 1
 var Shooting_speed = 1
 var Pierce = 0
 var Bounce = 0
-var Bullet_speed
+var Bullet_speed = 1
 
 # Declare member variables here. Examples:
 # var a = 2

@@ -1,6 +1,6 @@
 extends GridContainer
 
-var Sides = [load("res://Dicesides/a die 1.png"), load("res://Dicesides/a die 2.png"), load("res://Dicesides/a die 3.png"),  load("res://Dicesides/a die 4.png"), load("res://Dicesides/a die 5.png"), load("res://Dicesides/a die 6.png"),]
+var Sides = [load("res://Gun/guns/ol classic.png"), load("res://Gun/guns/funny grav gun.png"), load("res://Gun/guns/burst gun.png"),  load("res://Gun/guns/fish dula gun.png"), load("res://Gun/guns/shotgun.png"), load("res://Gun/guns/minigun.png")]
 
 # Declare member variables here. Examples:
 # var a = 2

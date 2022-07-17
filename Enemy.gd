@@ -21,7 +21,6 @@ func _process(delta):
 	dir.y = sin(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
 	dir.x = cos(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
 	move_and_collide(dir)
-	print("sda")
 
 func Damage_received(Damage, Gun_type):
 

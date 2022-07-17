@@ -3,6 +3,8 @@
 TODO:
 	Camera
 	Enemies
-	Weapon Types
+	Weapon 4
 	World generation
 	Attack Combos
+	UI
+	Menu

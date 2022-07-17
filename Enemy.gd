@@ -19,6 +19,9 @@ func _process(delta):
 
 func Damage_received(Damage, Gun_type):
 	helth -= Damage
+	
+	print("Enemy health:", helth)
+	"""
 	if Last_spliter == 0:
 		if Last_damage_type == Gun_type or (Last_damage_type == 0 and Last_damage_type_2 != 0):
 			Last_damage_data_save(Damage, Gun_type)
@@ -34,6 +37,7 @@ func Damage_received(Damage, Gun_type):
 		else:
 			Last_damage = 0
 			Last_damage_data_save(Damage, Gun_type)
+	"""
 	if helth < 0:
 		self.queue_free()
 
@@ -63,3 +67,9 @@ func Last_damage_data_save_2(Damage, Gun_type):
 			Last_major_damage = Last_damage_type_2
 		Last_damage_type_2 = 0
 		Last_damage_2 = 0
+
+
+func _on_Area2D_area_entered(area):
+	if area.get_parent().name == "Bullet":
+		var bullet = area.get_parent()
+		Damage_received(bullet.Damage, bullet.Gun_type)

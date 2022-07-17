@@ -6,6 +6,8 @@ export var Face = 1
 var debounce = 0
 var debouce_movement = 0
 
+export var health = 100
+
 var Rotation_ = 0
 
 func _ready():
@@ -189,3 +191,8 @@ func roll(Direction_):
 
 func _on_Idle_timeout():
 	$AnimationPlayer.play("Player Movement")
+
+
+func _on_Player_Hitbox_area_entered(area):
+	if area.name == "Enemy_Area":
+		health -= 3

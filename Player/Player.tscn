@@ -8,7 +8,7 @@
 [ext_resource path="res://Wall.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.5999, 15.7265 )
+extents = Vector2( 29, 28.5 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Player Movement"
@@ -51,7 +51,10 @@ hframes = 14
 
 [node name="gun" parent="." instance=ExtResource( 3 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Player_Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Hitbox"]
+position = Vector2( -4.76837e-07, 0.500001 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -97,5 +100,6 @@ color = Color( 0.0196078, 0.0784314, 0.152941, 1 )
 polygon = PoolVector2Array( -273.534, -159.931, 297.285, -175.391, 316.312, 176.615, -274.724, 186.128 )
 
 [connection signal="player_move" from="." to="Camera2D/CanvasLayer/HUD" method="_on_Player_player_move"]
+[connection signal="area_entered" from="Player_Hitbox" to="." method="_on_Player_Hitbox_area_entered"]
 [connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]
 [connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]

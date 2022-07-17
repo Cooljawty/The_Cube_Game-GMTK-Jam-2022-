@@ -2,9 +2,10 @@
 
 TODO:
 	Camera
-	Enemies
-	Weapon 4
-	World generation
-	Attack Combos
+	Enemies - q
+	World generation - q
+	Attack Combos - q
 	UI
 	Menu
+	SFX -q
+	

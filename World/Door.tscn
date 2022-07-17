@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World/Door.gd" type="Script" id=1]
+[ext_resource path="res://Gun/Miss.wav" type="AudioStream" id=2]
+[ext_resource path="res://Gun/Fish miss.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -8,6 +10,9 @@
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
+Miss_sounds = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

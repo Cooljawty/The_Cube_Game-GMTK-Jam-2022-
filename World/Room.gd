@@ -5,6 +5,7 @@ var Box = preload("res://World/Box.tscn")
 onready var World_ = get_parent()
 
 func _ready():
+	randomize()
 	print(World_)
 	for n in int(rand_range(5, 7)):
 		if randi() % 3 == 1:

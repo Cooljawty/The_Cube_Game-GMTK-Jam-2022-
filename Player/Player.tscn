@@ -42,6 +42,7 @@ margin_bottom = -236.0
 script = ExtResource( 10 )
 
 [node name="spawn" type="Timer" parent="."]
+autostart = true
 
 [connection signal="player_move" from="." to="Camera2D/HUD" method="_on_Player_player_move"]
 [connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]

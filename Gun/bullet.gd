@@ -26,7 +26,7 @@ func _on_Timer_timeout():
 
 
 func Area_entered(area):
-	if not area.get_collision_layer_bit(1):
+	if area.get_collision_layer_bit(0):
 		connect("Deel_damage", area.get_parent(), "Damage_received")
 		emit_signal("Deel_damage", Damage, Gun_type)
 

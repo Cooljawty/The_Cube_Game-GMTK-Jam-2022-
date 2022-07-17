@@ -5,7 +5,8 @@
 [ext_resource path="res://World/Wall.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
-background_energy = 1.18
+background_mode = 1
+background_energy = 16.0
 auto_exposure_enabled = true
 ssao_enabled = true
 dof_blur_far_enabled = true
@@ -13,6 +14,10 @@ glow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -2729.37, -3032.26, 3326.53, -3621.24, 5048.16, 3.2417, 4217.55, 2887.72, 487.355, 3899.56, -2472.64, 3129.35, -3952.63, -359.206 )
 
 [node name="Sprite" type="Sprite" parent="."]
 

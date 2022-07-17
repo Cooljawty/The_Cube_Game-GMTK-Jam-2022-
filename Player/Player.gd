@@ -164,7 +164,7 @@ func get_next_face(next_direction, current_rotation, current_face):
 	
 func roll(Direction_):
 	var result = get_next_face(Direction_, Rotation_, Face)
-	Direction_ = result[0]
+	Rotation_ = result[0]
 	Face = result[1]
 	
 	var preview = [

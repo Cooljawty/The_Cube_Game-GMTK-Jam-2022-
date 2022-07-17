@@ -5,8 +5,7 @@ onready var node = $Node2D
 var BullLocate = preload("res://Gun/bullet.tscn")
 onready var image = $Sprite.texture
 export var Guns = [preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn"), preload("res://Gun/bullet.tscn")]
-export var Shot_sound = preload("res://Gun/Shoot 2.wav")
-export var Shotgun_sound = preload("res://Gun/Shoot 2.wav")
+export var Gun_sounds = [preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav")]
 
 
 onready var Player = get_parent()
@@ -15,12 +14,12 @@ var Can_gun_shoot = true
 var Multi_shot = 1
 var Shot = 0
 var Masshingun_phase = false
-
+#Upgrade effects
 var Damage = 1
 var Shooting_speed = 1
 var Pierce = 0
 var Bounce = 0
-var Bullet_speed
+var Bullet_speed = 1
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -101,11 +100,9 @@ func _input(event):
 func shoot(Rotmodif, Speed, Damage, Gun_type, Offset):
 	var bullet = BullLocate.instance()
 	Player.get_parent().add_child(bullet)
-	get_child(3).pitch_scale = rand_range(0.8, 1.2)
-	if [5,1].has(Gun_type):
-		get_child(3).stream = Shotgun_sound
-	else:
-		get_child(3).stream = Shot_sound
+	#get_child(3).pitch_scale = rand_range(-0.2, 0.2)
+	get_child(3).volume_db = rand_range(0.8, 1.2)
+	get_child(3).stream = Gun_sounds[Gun_type - 1]
 	get_child(3).play(0)
 	bullet.Speed = Speed
 	bullet.Damage = Damage

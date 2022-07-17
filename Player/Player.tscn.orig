@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+[gd_scene load_steps=9 format=2]
+=======
 [gd_scene load_steps=14 format=2]
+>>>>>>> 5f36b694c23d81df87f279a1daab3153ce4f9679
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Gun/gun.tscn" type="PackedScene" id=3]
@@ -9,6 +13,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.5999, 15.7265 )
 
+<<<<<<< HEAD
 [sub_resource type="Animation" id=2]
 resource_name = "Player Movement"
 length = 5.0
@@ -40,10 +45,12 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 1 ]
 }
+=======
 [sub_resource type="OpenSimplexNoise" id=2]
 
 [sub_resource type="NoiseTexture" id=3]
 noise = SubResource( 2 )
+>>>>>>> 5f36b694c23d81df87f279a1daab3153ce4f9679
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -72,12 +79,14 @@ script = ExtResource( 10 )
 [node name="spawn" type="Timer" parent="."]
 autostart = true
 
+<<<<<<< HEAD
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Player Movement" = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
 [node name="Idle" type="Timer" parent="."]
 wait_time = 2.0
+=======
 [node name="Light2D" type="Light2D" parent="."]
 texture = SubResource( 3 )
 
@@ -86,6 +95,7 @@ texture = SubResource( 3 )
 [node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
 position = Vector2( 449.52, 337.735 )
 polygon = PoolVector2Array( 608.84, -441.161, -561.339, -403.106, -573.231, 338.959, 623.111, 369.878 )
+>>>>>>> 5f36b694c23d81df87f279a1daab3153ce4f9679
 
 [connection signal="player_move" from="." to="Camera2D/HUD" method="_on_Player_player_move"]
 [connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]

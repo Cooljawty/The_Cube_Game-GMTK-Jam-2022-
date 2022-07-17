@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Gun/gun.tscn" type="PackedScene" id=3]
@@ -40,10 +40,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 1 ]
 }
-[sub_resource type="OpenSimplexNoise" id=2]
-
-[sub_resource type="NoiseTexture" id=3]
-noise = SubResource( 2 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -63,10 +59,11 @@ shape = SubResource( 1 )
 current = true
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 9 )]
-margin_left = 403.0
-margin_top = -215.0
-margin_right = 403.0
-margin_bottom = -215.0
+margin_left = 361.0
+margin_top = -170.0
+margin_right = 361.0
+margin_bottom = -170.0
+rect_scale = Vector2( 2.20215, 2.20215 )
 script = ExtResource( 10 )
 
 [node name="spawn" type="Timer" parent="."]
@@ -78,13 +75,14 @@ anims/RESET = SubResource( 3 )
 
 [node name="Idle" type="Timer" parent="."]
 wait_time = 2.0
+
 [node name="Light2D" type="Light2D" parent="."]
-texture = SubResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
-position = Vector2( 449.52, 337.735 )
+visible = false
+position = Vector2( 772, -22 )
 polygon = PoolVector2Array( 608.84, -441.161, -561.339, -403.106, -573.231, 338.959, 623.111, 369.878 )
 
 [connection signal="player_move" from="." to="Camera2D/HUD" method="_on_Player_player_move"]

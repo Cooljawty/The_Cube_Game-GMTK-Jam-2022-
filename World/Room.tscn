@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://World/Room.gd" type="Script" id=1]
+[ext_resource path="res://World/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Wall.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 
 
@@ -12,8 +13,8 @@ void fragment() {
 	COLOR = (Pixel_color * vec4(0.1, 0.05,0.01,0)) + vec4(0.2,0.21,0.25,1);
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 
 [sub_resource type="OpenSimplexNoise" id=3]
 period = 47.1
@@ -26,7 +27,7 @@ height = 63
 noise = SubResource( 3 )
 
 [node name="Sprite" type="Sprite"]
-material = SubResource( 2 )
+material = SubResource( 6 )
 scale = Vector2( 15, 15 )
 texture = SubResource( 4 )
 script = ExtResource( 1 )
@@ -69,3 +70,21 @@ scale = Vector2( 0.1, 0.8 )
 position = Vector2( -19, -30 )
 rotation = 1.5708
 scale = Vector2( 0.1, 0.8 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( -30, 0 )
+scale = Vector2( 0.15, 1 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 30, 0 )
+scale = Vector2( 0.15, 1 )
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 30 )
+rotation = 1.5708
+scale = Vector2( 0.15, 1 )
+
+[node name="StaticBody2D4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -30 )
+rotation = 1.5708
+scale = Vector2( 0.15, 1 )

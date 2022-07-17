@@ -3,7 +3,6 @@
 TODO:
 	Camera
 	Enemies - q
-	World generation - q
 	Attack Combos - q
 	UI: Available combos -j
 	HUD: Current combo on enemy -j

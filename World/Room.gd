@@ -6,7 +6,7 @@ var Box = preload("res://World/Box.tscn")
 
 func _ready():
 	for n in int(rand_range(5, 7)):
-		if randi() % 2 == 1:
+		if randi() % 3 == 1:
 			var Spawn = Enemy.instance()
 			add_child(Spawn)
 			Spawn.position.x = rand_range(-25, 25)

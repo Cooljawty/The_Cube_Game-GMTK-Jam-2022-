@@ -12,27 +12,27 @@ void fragment() {
 	COLOR = vec4(0.2,0.21,0.25,1);
 }"
 
-[sub_resource type="GradientTexture" id=4]
+[sub_resource type="GradientTexture" id=2]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 1 )
-shader_param/Texture_2 = SubResource( 4 )
+shader_param/Texture_2 = SubResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 16 )
 
 [sub_resource type="OccluderPolygon2D" id=5]
 polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 
 [node name="Wall" type="Sprite"]
-material = SubResource( 2 )
+material = SubResource( 3 )
 position = Vector2( 0, -1.54338 )
 texture = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 5 )

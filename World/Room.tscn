@@ -3,7 +3,7 @@
 [ext_resource path="res://World/Room.gd" type="Script" id=1]
 [ext_resource path="res://World/Wall.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 
@@ -12,23 +12,23 @@ void fragment() {
 	COLOR = (Pixel_color * vec4(0.1, 0.05,0.01,0)) + vec4(0.2,0.21,0.25,1);
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 
-[sub_resource type="OpenSimplexNoise" id=1]
+[sub_resource type="OpenSimplexNoise" id=3]
 period = 47.1
 persistence = 0.0
 lacunarity = 2.26
 
-[sub_resource type="NoiseTexture" id=2]
+[sub_resource type="NoiseTexture" id=4]
 width = 63
 height = 63
-noise = SubResource( 1 )
+noise = SubResource( 3 )
 
 [node name="Sprite" type="Sprite"]
-material = SubResource( 4 )
+material = SubResource( 2 )
 scale = Vector2( 15, 15 )
-texture = SubResource( 2 )
+texture = SubResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true

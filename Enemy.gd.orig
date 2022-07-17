@@ -18,8 +18,8 @@ func Damage_received(Damage, Gun_type):
 	Current_combo.pop_front();
 	print(Current_combo)
 	if Current_combo == get_node("/root/Global").Combo1:
-			print("Combo1 activated")
-			health -= 5
+		print("Combo1 activated")
+		health -= 5
 	
 	"""
 	if Last_spliter == 0:
@@ -41,7 +41,8 @@ func Damage_received(Damage, Gun_type):
 	if health < 0:
 		self.queue_free()
 
-"""
+<<<<<<< HEAD
+=======
 func Last_damage_data_save(Damage, Gun_type):
 	Last_damage += Damage
 	Last_damage_type = Gun_type
@@ -68,8 +69,9 @@ func Last_damage_data_save_2(Damage, Gun_type):
 			Last_major_damage = Last_damage_type_2
 		Last_damage_type_2 = 0
 		Last_damage_2 = 0
-"""
 
+
+>>>>>>> c969c56ab202c033031e5ac8891ad60313f85af3
 func _on_Area2D_area_entered(area):
 	if area.get_parent().name == "Bullet":
 		var bullet = area.get_parent()

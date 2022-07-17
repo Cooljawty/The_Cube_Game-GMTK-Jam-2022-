@@ -5,7 +5,10 @@ TODO:
 	Enemies - q
 	World generation - q
 	Attack Combos - q
-	UI
+	UI: Available combos -j
+	HUD: Current combo on enemy -j
+	Player animation -j
+	Enemy animation -j
 	Menu
 	SFX -q
 	

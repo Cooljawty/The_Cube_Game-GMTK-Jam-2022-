@@ -16,11 +16,17 @@ var Last_major_damage
 
 var Current_combo = [10, 10]
 
+var last_position = position
+
+func _ready():
+	$AnimationPlayer.play("Pirate_Forward_Walk")
+	
 func _process(delta):
 	#look_at(get_node("/root/Global").Player.global_position)
 	dir.y = sin(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
 	dir.x = cos(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
 	move_and_collide(dir)
+	
 
 func Damage_received(Damage, Gun_type):
 

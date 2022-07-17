@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Dicesides/a die 1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -13,6 +13,11 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.5999, 15.7265 )
+
+[sub_resource type="OpenSimplexNoise" id=2]
+
+[sub_resource type="NoiseTexture" id=3]
+noise = SubResource( 2 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -43,6 +48,15 @@ script = ExtResource( 10 )
 
 [node name="spawn" type="Timer" parent="."]
 autostart = true
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
+position = Vector2( 449.52, 337.735 )
+polygon = PoolVector2Array( 608.84, -441.161, -561.339, -403.106, -573.231, 338.959, 623.111, 369.878 )
 
 [connection signal="player_move" from="." to="Camera2D/HUD" method="_on_Player_player_move"]
 [connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]

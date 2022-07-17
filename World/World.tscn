@@ -26,9 +26,6 @@ position = Vector2( 0, -900 )
 [node name="Sprite5" parent="." instance=ExtResource( 2 )]
 position = Vector2( -900, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -25.1985, -1239.76 )
-
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 
 [node name="Sprite2" parent="." instance=ExtResource( 2 )]
@@ -115,3 +112,6 @@ position = Vector2( -1118.27, -102.875 )
 [node name="Wall3" parent="Wall4" instance=ExtResource( 3 )]
 position = Vector2( 432.575, 47.5903 )
 scale = Vector2( 9.2884, 0.274117 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -25.1985, -1239.76 )

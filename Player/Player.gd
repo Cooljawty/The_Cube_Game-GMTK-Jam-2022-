@@ -26,6 +26,9 @@ func _process(delta):
 		get_child(0).scale.x = 2
 		get_child(0).position.x = 0
 	"""
+	get_child(10).value = health
+	if health < 1:
+		get_tree().change_scene("res://Menu.tscn")
 	
 func _input(event):
 	# - 5 - -

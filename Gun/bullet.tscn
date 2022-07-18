@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Gun/guns/bullet.png" type="Texture" id=1]
 [ext_resource path="res://Gun/bullet.gd" type="Script" id=2]
-[ext_resource path="res://Gun/guns/Buller warp.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 4.5 )
@@ -12,13 +11,18 @@ code = "shader_type canvas_item;
 
 
 void fragment() {
-	vec2 Distortion = SCREEN_UV * (texture(TEXTURE, UV).a / -2.0);
-	vec4 Pixel_color = texture(SCREEN_TEXTURE, Distortion);
+	//vec2 Distortion = SCREEN_UV * (texture(TEXTURE, UV).a / -2.0);
+	vec4 Pixel_color = texture(TEXTURE, SCREEN_UV + UV);
 	COLOR = Pixel_color;
 }"
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
+
+[sub_resource type="OpenSimplexNoise" id=4]
+
+[sub_resource type="NoiseTexture" id=5]
+noise = SubResource( 4 )
 
 [node name="Bullet" type="Node2D"]
 light_mask = 3
@@ -42,9 +46,9 @@ shape = SubResource( 1 )
 [node name="Sprite2" type="Sprite" parent="."]
 visible = false
 material = SubResource( 3 )
-position = Vector2( -0.0556831, 0 )
-scale = Vector2( 1.00348, 1 )
-texture = ExtResource( 3 )
+position = Vector2( 0.452026, 0.191018 )
+scale = Vector2( 0.0665188, 0.0547523 )
+texture = SubResource( 5 )
 offset = Vector2( -16, 0 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -44,6 +44,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite2" type="Sprite" parent="."]
+visible = false
 material = SubResource( 3 )
 position = Vector2( 0.452026, 0.191018 )
 scale = Vector2( 0.0665188, 0.0547523 )

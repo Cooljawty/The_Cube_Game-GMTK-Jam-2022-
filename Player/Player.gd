@@ -12,7 +12,7 @@ var Rotation_ = 0
 
 func _ready():
 	get_node("/root/Global").Wtf_is_Player(self)
-	get_child(6).start()
+	get_child(7).start()
 
 func _process(delta):
 	"""

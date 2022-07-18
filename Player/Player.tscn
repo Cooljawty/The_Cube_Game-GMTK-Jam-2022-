@@ -8,7 +8,7 @@
 [ext_resource path="res://Wall.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 29, 28.5 )
+extents = Vector2( 15.5999, 15.7265 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Player Movement"
@@ -82,7 +82,7 @@ anims/RESET = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
 light_mask = 0
-scale = Vector2( 2, 2 )
+scale = Vector2( 20, 20 )
 texture = ExtResource( 11 )
 mode = 2
 shadow_enabled = true
@@ -98,6 +98,15 @@ visible = false
 scale = Vector2( 2, 2 )
 color = Color( 0.0196078, 0.0784314, 0.152941, 1 )
 polygon = PoolVector2Array( -273.534, -159.931, 297.285, -175.391, 316.312, 176.615, -274.724, 186.128 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = -44.4551
+margin_top = -60.5811
+margin_right = 48.5449
+margin_bottom = -46.5811
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="player_move" from="." to="Camera2D/CanvasLayer/HUD" method="_on_Player_player_move"]
 [connection signal="area_entered" from="Player_Hitbox" to="." method="_on_Player_Hitbox_area_entered"]

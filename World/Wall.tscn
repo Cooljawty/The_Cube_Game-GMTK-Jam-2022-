@@ -15,11 +15,11 @@ void fragment() {
 	COLOR = vec4(0.2,0.21,0.25,1);
 }"
 
-[sub_resource type="GradientTexture" id=6]
+[sub_resource type="GradientTexture" id=2]
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 1 )
-shader_param/Texture_2 = SubResource( 6 )
+shader_param/Texture_2 = SubResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 16 )
@@ -28,7 +28,7 @@ extents = Vector2( 16, 16 )
 polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 
 [node name="Wall" type="Sprite"]
-material = SubResource( 7 )
+material = SubResource( 3 )
 position = Vector2( 0, -1.54338 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )

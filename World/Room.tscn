@@ -4,7 +4,7 @@
 [ext_resource path="res://World/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Wall.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 
 uniform vec4 Color_1 : hint_color;
@@ -18,25 +18,25 @@ void fragment() {
 	
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 shader_param/Color_1 = Color( 0.196078, 0.0705882, 0.32549, 1 )
 shader_param/Color_2 = Color( 0.501961, 0.384314, 0.133333, 1 )
 
-[sub_resource type="OpenSimplexNoise" id=3]
+[sub_resource type="OpenSimplexNoise" id=7]
 period = 27.4
 persistence = 0.0
 lacunarity = 2.26
 
-[sub_resource type="NoiseTexture" id=4]
+[sub_resource type="NoiseTexture" id=8]
 width = 63
 height = 63
-noise = SubResource( 3 )
+noise = SubResource( 7 )
 
 [node name="Sprite" type="Sprite"]
-material = SubResource( 2 )
+material = SubResource( 6 )
 scale = Vector2( 15, 15 )
-texture = SubResource( 4 )
+texture = SubResource( 8 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true

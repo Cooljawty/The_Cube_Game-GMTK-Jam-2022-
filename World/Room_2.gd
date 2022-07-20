@@ -1,6 +1,6 @@
 extends TileMap
 
-var Enemy = preload("res://Enemy.tscn")
+var Enemy = preload("res://Enemies/Enemy.tscn")
 var Box = preload("res://World/Box.tscn")
 onready var World_ = get_parent()
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://robopirateFront-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Gun/hit.wav" type="AudioStream" id=3]
 [ext_resource path="res://Gun/Fishgun.wav" type="AudioStream" id=4]
@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.837
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Pirate_Forward_Walk"
 length = 0.3
 loop = true
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=4]
 radius = 25.9663
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -64,12 +64,12 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
-anims/Pirate_Forward_Walk = SubResource( 3 )
-anims/RESET = SubResource( 4 )
+anims/Pirate_Forward_Walk = SubResource( 2 )
+anims/RESET = SubResource( 3 )
 
 [node name="Enemy_Area" type="Area2D" parent="."]
 
 [node name="Enemy_Collision" type="CollisionShape2D" parent="Enemy_Area"]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [connection signal="area_entered" from="Enemy_Area" to="." method="_on_Area2D_area_entered"]

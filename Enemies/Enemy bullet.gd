@@ -14,13 +14,12 @@ func _ready():
 	#print("Bullet: Ready")
 
 func _physics_process(delta):
-	return
 	if Gun_type == 2:
 		rotation_degrees += Extra_info
 		self.global_position.y += sin(rotation) * 3
 		self.global_position.x += cos(rotation) * 3
-	self.global_position.y += sin(Original_rotation) * Speed 
-	self.global_position.x += cos(Original_rotation) * Speed 
+	self.global_position.y += sin(rotation) * Speed 
+	self.global_position.x += cos(rotation) * Speed 
 
 func _on_Timer_timeout():
 	self.queue_free()

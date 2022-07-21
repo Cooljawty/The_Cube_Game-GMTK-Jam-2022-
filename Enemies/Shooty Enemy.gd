@@ -5,7 +5,7 @@ var dir = Vector2.ZERO
 var helth = 42.0
 
 export var Hit_sounds = [preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav")]
-var BullLocate = preload("res://Gun/bullet.tscn")
+var BullLocate = preload("res://Enemies/Enemy bullet.tscn")
 
 var Last_damage_type = 0
 var Last_damage = 0
@@ -114,5 +114,5 @@ func Shoot():
 	bullet.Speed = 1
 	bullet.Damage = 1
 	bullet.Gun_type = 0
-	bullet.rotation_degrees = global_position.angle_to(get_node("/root/Global").Player.global_position)
+	bullet.rotation = global_position.angle_to(get_node("/root/Global").Player.global_position)
 	bullet.global_position = global_position

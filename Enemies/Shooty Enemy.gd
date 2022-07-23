@@ -65,6 +65,7 @@ func Damage_received(Damage, Gun_type):
 	print(Last_damage, "-", Last_damage_2)
 	"""
 	if helth < 0:
+		get_parent().get_child(0).set_cell(int(global_position.x / 64) + 1, int(global_position.y / 64), 3 + randi() % 3)
 		self.queue_free()
 
 """

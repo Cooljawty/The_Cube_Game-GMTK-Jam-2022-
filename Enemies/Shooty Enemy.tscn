@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Enemies/Shooty Enemy.gd" type="Script" id=1]
-[ext_resource path="res://robopirateFront-sheet.png" type="Texture" id=2]
-[ext_resource path="res://Gun/hit.wav" type="AudioStream" id=3]
+[ext_resource path="res://robopirateFront-sheet.png" type="Texture" id=1]
+[ext_resource path="res://Gun/hit.wav" type="AudioStream" id=2]
+[ext_resource path="res://Enemies/Shooty Enemy.gd" type="Script" id=3]
+[ext_resource path="res://Gun/Fish hit.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.837
@@ -45,19 +46,19 @@ radius = 25.9663
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource( 1 )
+script = ExtResource( 3 )
+Hit_sounds = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ) ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 hframes = 4
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")

@@ -17,7 +17,7 @@ var Last_damage_2 = 0
 var Last_spliter = 0
 var Last_major_damage
 
-
+export var Speed = 1.0
 var Current_combo = [10, 10]
 
 var last_position = position
@@ -25,12 +25,12 @@ var last_position = position
 func _ready():
 	$AnimationPlayer.play("Pirate_Forward_Walk")
 	Shield = randi() % 7
-	
+
 func _process(delta):
 	#look_at(get_node("/root/Global").Player.global_position)
 	if global_position.distance_to(get_node("/root/Global").Player.global_position) > 128:
-		dir.y = sin(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
-		dir.x = cos(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
+		dir.y = sin(get_angle_to(get_node("/root/Global").Player.global_position)) * Speed
+		dir.x = cos(get_angle_to(get_node("/root/Global").Player.global_position)) * Speed
 	move_and_collide(dir)
 	get_child(2).texture = Shields[Shield]
 

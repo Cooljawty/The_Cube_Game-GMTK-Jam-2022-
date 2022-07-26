@@ -5,6 +5,9 @@ var dir = Vector2.ZERO
 var helth = 42.0
 
 export var Hit_sounds = [preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav")]
+export var Shields = [preload("res://Gun/Shoot 2.wav"),preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav"), preload("res://Gun/Shoot 2.wav")]
+
+var Shield : int = 0
 
 var Last_damage_type = 0
 var Last_damage = 0
@@ -13,6 +16,7 @@ var Last_damage_2 = 0
 var Last_spliter = 0
 var Last_major_damage
 
+export var Speed = 1.0
 
 var Current_combo = [10, 10]
 
@@ -20,16 +24,21 @@ var last_position = position
 
 func _ready():
 	$AnimationPlayer.play("Pirate_Forward_Walk")
-	
+	Shield = randi() % 7
+
 func _process(delta):
 	#look_at(get_node("/root/Global").Player.global_position)
-	dir.y = sin(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
-	dir.x = cos(get_angle_to(get_node("/root/Global").Player.global_position)) * 1.2
+	dir.y = sin(get_angle_to(get_node("/root/Global").Player.global_position)) * Speed
+	dir.x = cos(get_angle_to(get_node("/root/Global").Player.global_position)) * Speed
 	move_and_collide(dir)
-	
+	get_child(2).texture = Shields[Shield]
 
 func Damage_received(Damage, Gun_type):
-
+	if Shield != 0:
+		if Shield == Gun_type:
+			Shield = 0
+		else:
+			return
 	helth -= Damage
 	get_child(0).pitch_scale = rand_range(0.8, 1.2)
 	get_child(0).volume_db = rand_range(0.8, 1.2)
